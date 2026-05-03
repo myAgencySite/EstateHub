@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Адмінпанель — EstateHub</title><link rel="stylesheet" href="assets/styles.css">
+</head>
+<body data-page="admin">
+<header class="header"><nav class="container nav"><a class="logo" href="index.html"><span class="logo-mark">EH</span><span>EstateHub</span></a><button class="menu-toggle">☰</button><div class="nav-links"><a data-page="home" href="index.html">Головна</a><a data-page="catalog" href="catalog.html">Каталог</a><a data-page="about" href="about.html">Про агентство</a><a data-page="contacts" href="contacts.html">Контакти</a><a data-page="admin" href="admin.html">Адмінпанель</a></div></nav></header>
+<main>
+  <section class="hero small"><div class="container"><p class="eyebrow">Адміністративна частина</p><h1>Керування об’єктами</h1><p class="lead">Демонстраційний вхід: пароль <strong>admin123</strong>. У режимі GitHub Pages дані зберігаються в localStorage. При запуску Node.js backend — у JSON-файлі.</p></div></section>
+  <section class="section">
+    <div class="container">
+      <form id="adminLogin" class="card" style="max-width:520px">
+        <h2>Вхід адміністратора</h2>
+        <div class="form-row"><label>Пароль</label><input class="input" name="password" type="password" placeholder="admin123" required></div>
+        <button class="btn" type="submit">Увійти</button>
+        <div id="loginNotice" class="notice"></div>
+      </form>
+
+      <div id="adminPanel" class="hidden">
+        <div class="grid-2">
+          <form id="propertyForm" class="card">
+            <h2>Додати або редагувати об’єкт</h2>
+            <div class="form-row"><label>Назва</label><input class="input" name="title" required></div>
+            <div class="form-grid"><div class="form-row"><label>Тип</label><select class="select" name="type" required><option>Квартира</option><option>Будинок</option><option>Комерційна нерухомість</option><option>Земельна ділянка</option></select></div><div class="form-row"><label>Операція</label><select class="select" name="operation" required><option>Продаж</option><option>Оренда</option></select></div></div>
+            <div class="form-grid"><div class="form-row"><label>Ціна</label><input class="input" name="price" type="number" min="0" required></div><div class="form-row"><label>Площа, м²</label><input class="input" name="area" type="number" min="0" required></div></div>
+            <div class="form-grid"><div class="form-row"><label>Місто</label><input class="input" name="city" value="Вінниця" required></div><div class="form-row"><label>Район</label><input class="input" name="district" required></div></div>
+            <div class="form-grid"><div class="form-row"><label>Кількість кімнат</label><input class="input" name="rooms" type="number" min="0" required></div><div class="form-row"><label>Адреса</label><input class="input" name="address" required></div></div>
+            <div class="form-row"><label>Опис</label><textarea name="description" rows="4" required></textarea></div>
+            <div class="form-row"><label>Посилання на фото, кожне з нового рядка</label><textarea name="images" rows="4" placeholder="https://..." required></textarea></div>
+            <button class="btn success" type="submit">Зберегти об’єкт</button>
+            <div id="adminNotice" class="notice"></div>
+          </form>
+          <div class="card">
+            <h2>Список об’єктів</h2>
+            <div class="table-wrap"><table id="adminTable"><thead><tr><th>Об’єкт</th><th>Тип</th><th>Операція</th><th>Ціна</th><th>Дії</th></tr></thead><tbody></tbody></table></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="footer"><div class="container footer-grid"><div><strong>EstateHub</strong><br>Адміністративна сторінка.</div><div>Пароль: admin123</div></div></footer>
+<script src="js/app.js"></script>
+</body></html>
